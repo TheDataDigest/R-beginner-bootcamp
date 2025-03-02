@@ -1,0 +1,21 @@
+project:
+  type: book
+
+book:
+  title: "R Beginners Bootcamp"
+  author: "Your Name"
+  date: today
+  chapters:
+    - index.qmd
+    - 01-setup.qmd
+    - 02-etl.qmd
+    - 03-charts-tables.qmd
+    - 04-statistics.qmd
+    - 05-publishing.qmd
+    - 06-case-studies.qmd
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: book

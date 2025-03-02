@@ -1,0 +1,89 @@
+---
+title: "Stock Market Growth Analysis"
+author: "R Beginner Bootcamp"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# **1. Load Required Packages**
+```{r}
+install.packages("tidyquant")
+library(tidyquant)
+library(ggplot2)
+library(dplyr)
+```
+
+# **2. Download & Visualize Stock Market Data**
+```{r}
+stocks <- c("TSLA", "AMZN", "NFLX", "MSFT", "NVDA")
+stock_data <- tq_get(stocks, from = "2014-01-01", to = Sys.Date())
+
+# Plot stock price trends
+ggplot(stock_data, aes(x = date, y = adjusted, color = symbol)) +
+  geom_line(size = 1) +
+  labs(title = "Stock Price Trends (2014-2024)",
+       x = "Year", y = "Stock Price (USD)", color = "Company") +
+  theme_minimal()
+```
+
+# **3. Investment Growth Calculation: DCA vs. Lump Sum**
+```{r}
+start_date <- as.Date("2019-01-01")
+stock_data_5y <- stock_data %>% filter(date >= start_date)
+
+# Lump Sum Investment Calculation
+lump_sum <- stock_data_5y %>% 
+  group_by(symbol) %>% 
+  summarize(initial_price = first(adjusted), 
+            final_price = last(adjusted),
+            shares_purchased = 3000 / first(adjusted),
+            final_value = shares_purchased * last(adjusted))
+
+# Dollar-Cost Averaging (DCA) Investment Calculation
+monthly_dates <- seq(from = start_date, to = Sys.Date(), by = "month")
+
+dca_results <- lapply(stocks, function(stock) {
+  stock_prices <- stock_data_5y %>% filter(symbol == stock)
+  
+  monthly_prices <- sapply(monthly_dates, function(d) {
+    stock_prices$adjusted[which.min(abs(stock_prices$date - d))]
+  })
+  
+  shares <- 50 / monthly_prices  # Buying shares worth $50 per month
+  final_value <- sum(shares) * last(stock_prices$adjusted)
+  
+  data.frame(symbol = stock, final_value = final_value)
+}) %>% bind_rows()
+
+# Merge results into a summary table
+investment_summary <- left_join(lump_sum, dca_results, by = "symbol") %>%
+  rename(DCA_Final_Value = final_value.y, Lump_Sum_Final_Value = final_value.x)
+
+print(investment_summary)
+```
+
+# **4. Statistical Trend Comparison of Stocks**
+```{r}
+lm_models <- stock_data_5y %>%
+  group_by(symbol) %>%
+  summarize(model = list(lm(adjusted ~ date, data = cur_data())))
+
+growth_rates <- lm_models %>%
+  mutate(slope = sapply(model, function(m) coef(m)[2])) %>%
+  select(symbol, slope)
+
+print(growth_rates)
+
+# ANOVA test
+anova_test <- aov(adjusted ~ symbol + date, data = stock_data_5y)
+summary(anova_test)
+
+# Kruskal-Wallis test (if normality assumption fails)
+kruskal_test <- kruskal.test(adjusted ~ symbol, data = stock_data_5y)
+print(kruskal_test)
+```
+
+# **5. Conclusion & Publishing**
+- Lump Sum vs. DCA investment results summarized.
+- Statistical tests used to compare stock trends.
+- Publish this report on RPubs or QuartoPub.

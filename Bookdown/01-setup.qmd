@@ -1,0 +1,37 @@
+---
+title: "Module 1: Setting Up RStudio"
+---
+
+# (PART) Module 1: Setting Up RStudio   <!-- This stops numbering the module -->
+
+This chapter covers:
+
+- Why use RStudio instead of base R?
+- Installing R and RStudio
+- Understanding the RStudio interface
+- Installing essential packages
+- Setting up an R Project for better organization
+
+# Why Use RStudio Instead of Base R?  <!-- This will be a separate page -->
+
+## What is R?  
+R is a programming language, while RStudio is an IDE that makes it easier to use R.  
+
+## Why RStudio?  
+- Script editor  
+- Data visualization  
+- Project organization  
+
+
+# RStudio Tour & First Hands-On Calculation <!-- Separate Page -->
+
+## RStudio Interface Overview  
+- Console, Script Editor, Environment, Plots Pane  
+
+## First Hands-On Calculation  
+```{r}
+savings <- 100  
+rate <- 0.05 / 12  
+future_value <- savings * (1 + rate)^60  
+future_value
+```

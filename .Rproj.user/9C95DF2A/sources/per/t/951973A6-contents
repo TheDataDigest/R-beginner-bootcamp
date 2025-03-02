@@ -1,0 +1,16 @@
+---
+title: "Module 5: Publishing Reports"
+---
+
+# Module 5: Publishing Reports
+
+This chapter covers:
+
+- Using R Markdown and Quarto
+- Exporting reports (PDF, Word, HTML)
+- Sharing results via RPubs and GitHub Pages
+
+```{r}
+#library(rmarkdown)
+#rmarkdown::render("report.qmd")
+```

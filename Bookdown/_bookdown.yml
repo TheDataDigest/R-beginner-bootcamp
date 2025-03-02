@@ -1,0 +1,14 @@
+book_filename: "R_beginner_bootcamp"
+output_dir: "_book"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Module "
+rmd_files:
+  - index.qmd
+  - 01-setup.qmd
+  - 02-etl.qmd
+  - 03-charts-tables.qmd
+  - 04-statistics.qmd
+  - 05-publishing.qmd
+  - 06-case-studies.qmd

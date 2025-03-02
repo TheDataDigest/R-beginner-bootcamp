@@ -1,0 +1,15 @@
+---
+title: "Module 4: Statistical Analysis"
+---
+
+# Module 4: Statistical Analysis
+
+This chapter covers:
+
+- Summary statistics (mean, median, variance)
+- Correlation and t-tests
+- ANOVA and regression analysis
+
+```{r}
+t.test(mpg ~ am, data = mtcars)
+```

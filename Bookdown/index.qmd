@@ -1,0 +1,19 @@
+---
+title: "R Beginners Bootcamp"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: bookdown::gitbook
+---
+
+# Welcome to the R Beginners Bootcamp
+
+This book is designed to help you learn **R from scratch** and guide you through **data analysis, visualization, statistics, and publishing your work**. By the end of this course, you'll have the skills to create **your own R projects and reports.**
+
+## Course Modules
+
+1. **Setting Up RStudio**
+2. **ETL: Data Cleaning & Transformation**
+3. **Charts & Visualization**
+4. **Statistics & Modeling**
+5. **Publishing Reports**
+6. **Case Studies & Applications**

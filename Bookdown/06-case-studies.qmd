@@ -1,0 +1,12 @@
+---
+title: "Module 6: Case Studies & Applications"
+---
+
+
+# Module 6: Case Studies & Applications
+
+This chapter covers:
+
+- Example reports for business & finance
+- Example reports for psychology & medicine
+- How to publish a complete data analysis report

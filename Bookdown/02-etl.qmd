@@ -1,0 +1,18 @@
+---
+title: "Module 2: ETL - Get, Clean, Filter & Summarize Data"
+---
+
+# Module 2: ETL - Get, Clean, Filter & Summarize Data
+
+This chapter covers:
+
+- Importing data (CSV, Excel, Web)
+- Cleaning and renaming columns
+- Filtering and summarizing data
+- Reshaping data using pivot functions
+
+```{r}
+#library(dplyr)
+#data <- read.csv("data.csv")
+#clean_data <- data %>% rename(NewColumn = OldColumn)
+```

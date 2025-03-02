@@ -1,0 +1,9 @@
+"0","# Plot stock price trends
+ggplot(stock_data, aes(x = date, y = adjusted, color = symbol)) +
+  geom_line(size = 1) +
+  labs(title = ""Stock Price Trends (2014-2024)"",
+       x = ""Year"", y = ""Stock Price (USD)"", color = ""Company"") +
+  theme_minimal()
+"
+"2","Warnung: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+Please use `linewidth` instead."

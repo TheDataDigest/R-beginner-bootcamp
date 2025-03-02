@@ -1,0 +1,14 @@
+welcome-to-the-r-beginners-bootcamp
+course-modules
+part-module-1-setting-up-rstudio
+why-use-rstudio-instead-of-base-r
+what-is-r
+why-rstudio
+rstudio-tour-first-hands-on-calculation
+rstudio-interface-overview
+first-hands-on-calculation
+module-2-etl---get-clean-filter-summarize-data
+module-3-data-visualization-with-ggplot2
+module-4-statistical-analysis
+module-5-publishing-reports
+module-6-case-studies-applications
